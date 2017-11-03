@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :fares, only: [] do
+    collection do
+      get '/:city/:kind/estimate', action: :estimate
+    end
+  end
 end
