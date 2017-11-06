@@ -1,5 +1,5 @@
 class City < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
-  has_many :fares
+  has_many :fares, dependent: :destroy
 end
