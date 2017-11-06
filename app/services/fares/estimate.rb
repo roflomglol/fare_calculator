@@ -14,7 +14,13 @@ module Fares
     end
 
     def call
-      fare.pickup + (time / 60) * fare.per_minute + (distance / 1000) * fare.per_km
+      estimated = fare.pickup + (time / 60) * fare.per_minute + (distance / 1000) * fare.per_km
+
+      if estimated < fare.minimum_price
+        fare.minimum_price
+      else
+        estimated
+      end
     end
 
     private
