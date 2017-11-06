@@ -10,7 +10,7 @@ module Estimator
     end
 
     def call
-      stub = Estimator::Estimate::Stub.new('localhost:3001', :this_channel_is_insecure)
+      stub = Estimator::Estimate::Stub.new(ENV.fetch("ESTIMATOR_API"), :this_channel_is_insecure)
       response = stub.time_and_distance_between_points(message)
 
       { time: response.time, distance: response.distance }
