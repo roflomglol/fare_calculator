@@ -3,12 +3,8 @@ class FaresController < ApplicationController
     estimation = Fares::Estimate.call(
       time_and_distance_between_points.merge(kind: kind, city_name: city_name)
     )
-    estimation_json = {
-      estimated_min: (estimation * 0.9).round,
-      estimated_max: (estimation * 1.1).round
-    }
 
-    render json: estimation_json
+    render json: estimation
   end
 
   private
