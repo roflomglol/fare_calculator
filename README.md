@@ -8,6 +8,10 @@ You can start the development server like this:
 
 ```bundler exec rails s```
 
+Or, use Docker:
+
+```docker run -p 3000:3000 -d -e ESTIMATOR_API= image```
+
 And try this, for example:
 
 ```curl localhost:3000/fares/moscow/business/estimate\?origin\=55.719022,37.407395\&destination\=55.866873,37.708217```
