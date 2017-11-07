@@ -7,7 +7,9 @@ WORKDIR /usr/src/app
 
 RUN gem install bundler
 
-ENV RAILS_ENV production
+ARG RAILS_ENV=development
+
+ENV RAILS_ENV ${RAILS_ENV}
 ENV RAILS_LOG_TO_STDOUT true
 
 COPY Gemfile /usr/src/app/
